@@ -1,6 +1,4 @@
-string = str(input())
-list_str = string.split()
-numbers = list(map(int, list_str))
+import sys
 
 def even_odd_num(numbers):
     even_list = []
@@ -14,4 +12,12 @@ def even_odd_num(numbers):
         return "WIN"
     return "FAIL"
 
-print(even_odd_num(numbers))
+def main():
+    line = sys.stdin.readline().rstrip()
+    line_list = line.split()
+    numbers = list(map(int, line_list))
+    numbers_three = numbers[:3]
+    print(even_odd_num(numbers_three))
+
+if __name__ == '__main__':
+    main()

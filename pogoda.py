@@ -1,6 +1,4 @@
-a = int(input())
-string = str(input())
-list_int = list(map(int, string.split()))
+import sys
 
 def randomness(list_int):
     counter = 0
@@ -20,4 +18,14 @@ def randomness(list_int):
             counter += 1
     return counter
 
-print(randomness(list_int))
+def main():
+    num_lines = int(input())
+    line = sys.stdin.readline().rstrip()
+    line_list = line.split()
+    line_int = list(map(int, line_list))
+
+    print(randomness(line_int[:num_lines]))
+
+
+if __name__ == '__main__':
+    main()
