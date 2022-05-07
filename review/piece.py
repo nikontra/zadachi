@@ -29,7 +29,7 @@ def get_mid_empty(empty_pieces: list, len_empty_pieces: int) -> list:
     """Возвращает список индексов средних участков между пустыми.
     Если количество участков между пустыми четное,
     то запишеться индекс участка выше середины"""
-    mid_empty_pieces: list = []*(len_empty_pieces - 1)
+    mid_empty_pieces: list = []*(len_empty_pieces -1)
     for i in range(len_empty_pieces - 1):
         midle = ceil((empty_pieces[i] + empty_pieces[i + 1])/2)
         mid_empty_pieces.append(midle)
