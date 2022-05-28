@@ -29,9 +29,9 @@
 #     matrix = []
 #     for i in range(num_lines):
 #         matrix.append(list(map(int, input().strip().split())))
-#         index_line = int(input())
-#         index_colomn = int(input())
-#         return matrix, num_lines, num_collomns, index_line, index_colomn
+#     index_line = int(input())
+#     index_colomn = int(input())
+#     return matrix, num_lines, num_collomns, index_line, index_colomn
 
 with open('input.txt', 'r') as f:
     lines = f.readlines()
@@ -46,20 +46,24 @@ for line in lines:
     list_int = list(map(int, line.split()))
     matrix.append(list_int)
 
+
 def neighbors_left(matrix, index_line, index_collomn):
     if index_collomn == 0:
         return None
     return matrix[index_line][(index_collomn-1)]
+
 
 def neighbors_right(matrix, index_line, num_collomns, index_collomn):
     if (index_collomn+1) == num_collomns:
         return None
     return matrix[index_line][(index_collomn+1)]
 
+
 def neighbors_top(matrix, index_line, index_collomn):
     if index_line == 0:
         return None
     return matrix[(index_line-1)][index_collomn]
+
 
 def neighbors_bottom(matrix, index_line, num_lines, index_collomn):
     if (index_line+1) == num_lines:
@@ -74,7 +78,7 @@ def search_neighbors(matrix, index_line, num_collomns, index_collomn, num_lines)
     if top is not None:
         list_neighbors.append(top)
 
-    bottom = neighbors_bottom(matrix, index_line, num_lines,index_collomn)
+    bottom = neighbors_bottom(matrix, index_line, num_lines, index_collomn)
     if bottom is not None:
         list_neighbors.append(bottom)
 
@@ -91,7 +95,8 @@ def search_neighbors(matrix, index_line, num_collomns, index_collomn, num_lines)
     list_str = list(map(str, list_neighbors))
 
     string_neighbors = ' '.join(list_str)
-    
+
     return string_neighbors
+
 
 print(search_neighbors(matrix, index_line, num_collomns, index_collomn, num_lines))
