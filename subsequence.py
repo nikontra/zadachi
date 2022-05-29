@@ -1,18 +1,12 @@
-def read_input():
+def main():
+    result = True
     s = input()
     t = input()
-    return s, t
-
-
-def main():
-    s, t = read_input()
-    result = True
-    if s == '' or t == '':
-        result = False
+    start = -1
     for i in s:
-        if i not in t:
+        start = t.find(i, start + 1)
+        if start == -1:
             result = False
-            break
     print(result)
 
 
